@@ -10,6 +10,8 @@
     --lg: 18px;
 }
 
+
+
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
@@ -148,9 +150,10 @@ nav {
 
 /*Menu desplegable Mobile*/
 .mobile-menu {
-    /*background-color: var(--white);*/
+    background-color: var(--white);
     position: absolute;
-    top: 60px;
+    top: 61px;
+    left: 0;
     padding: 24px;
 }
 
