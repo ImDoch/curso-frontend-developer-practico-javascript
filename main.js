@@ -3,29 +3,29 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
 
 //Mostrando y ocultando partes del html con event listeners
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCartIcon.addEventListener('click', toggleCartAside);
+menuCartIcon.addEventListener('click', toggleCartshoppingCartContainer);
 
 function toggleDesktopMenu () {
-    aside.classList.add('innactive');
+    shoppingCartContainer.classList.add('innactive');
     desktopMenu.classList.toggle('innactive') //El metodo toggle alterna el remover y poner la clase segun si el elemento tiene la clase o no la tiene en el momento de hacer click en el elemento
 }
 
 function toggleMobileMenu () {
-    aside.classList.add('innactive');
+    shoppingCartContainer.classList.add('innactive');
     mobileMenu.classList.toggle('innactive');
 }
 
-function toggleCartAside () {
+function toggleCartshoppingCartContainer () {
     desktopMenu.classList.add('innactive'); //Oculta el desktopMenu cuando se le da click al Carrito
     mobileMenu.classList.add('innactive'); //Oculta el mobileMenu cuando se clickea el carrito
-    aside.classList.toggle('innactive'); //Alterna entre mostrar y ocultar el aside(My Order) cuando se clickea el carrito
+    shoppingCartContainer.classList.toggle('innactive'); //Alterna entre mostrar y ocultar el shoppingCartContainer(My Order) cuando se clickea el carrito
 }
 
 //Creando HTML desde JS
