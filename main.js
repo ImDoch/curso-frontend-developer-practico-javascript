@@ -3,14 +3,18 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
+const cardsContainer = document.querySelector('.cards-container');
+
 
 //Mostrando y ocultando partes del html con event listeners
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartshoppingCartContainer);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu () {
     shoppingCartContainer.classList.add('innactive');
@@ -28,10 +32,32 @@ function toggleCartshoppingCartContainer () {
     shoppingCartContainer.classList.toggle('innactive'); //Alterna entre mostrar y ocultar el shoppingCartContainer(My Order) cuando se clickea el carrito
 }
 
+function openProductDetailAside () {
+    productDetailContainer.classList.remove('innactive')
+}
+
+function closeProductDetailAside () {
+    productDetailContainer.classList.add('innactive')
+}
 //Creando HTML desde JS
 
 //Aqui estamos creando un arreglo de objetos, estos objetos contienen la informacion de cada producto que se venderá en la pagina
 const productList = [];
+productList.push({
+    name: 'Byke',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Screen',
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Laptop',
+    price: 500,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
 productList.push({
     name: 'Byke',
     price: 120,
@@ -57,6 +83,8 @@ function renderProducts(array) {
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.classList.add('pointer')
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');

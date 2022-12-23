@@ -10,18 +10,19 @@
     --lg: 18px;
 }
 
-
-
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
 
 .innactive
-
 /*Se recomienda usar esta clase para las cosas que estan inactivas, esta clase se le agrega a los elementos inactivos del HTML*/
-    {
+{
     display: none;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 /*Barra de navegacion*/
