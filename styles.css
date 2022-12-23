@@ -15,7 +15,7 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.innactive
+.inactive
 /*Se recomienda usar esta clase para las cosas que estan inactivas, esta clase se le agrega a los elementos inactivos del HTML*/
 {
     display: none;

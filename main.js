@@ -17,27 +17,33 @@ menuCartIcon.addEventListener('click', toggleCartshoppingCartContainer);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu () {
-    shoppingCartContainer.classList.add('innactive');
-    desktopMenu.classList.toggle('innactive') //El metodo toggle alterna el remover y poner la clase segun si el elemento tiene la clase o no la tiene en el momento de hacer click en el elemento
+    productDetailContainer.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.toggle('inactive') //El metodo toggle alterna el remover y poner la clase segun si el elemento tiene la clase o no la tiene en el momento de hacer click en el elemento
 }
 
 function toggleMobileMenu () {
-    shoppingCartContainer.classList.add('innactive');
-    mobileMenu.classList.toggle('innactive');
+    productDetailContainer.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCartshoppingCartContainer () {
-    desktopMenu.classList.add('innactive'); //Oculta el desktopMenu cuando se le da click al Carrito
-    mobileMenu.classList.add('innactive'); //Oculta el mobileMenu cuando se clickea el carrito
-    shoppingCartContainer.classList.toggle('innactive'); //Alterna entre mostrar y ocultar el shoppingCartContainer(My Order) cuando se clickea el carrito
+    productDetailContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive'); //Oculta el desktopMenu cuando se le da click al Carrito
+    mobileMenu.classList.add('inactive'); //Oculta el mobileMenu cuando se clickea el carrito
+    shoppingCartContainer.classList.toggle('inactive'); //Alterna entre mostrar y ocultar el shoppingCartContainer(My Order) cuando se clickea el carrito
 }
 
 function openProductDetailAside () {
-    productDetailContainer.classList.remove('innactive')
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive')
 }
 
 function closeProductDetailAside () {
-    productDetailContainer.classList.add('innactive')
+    productDetailContainer.classList.add('inactive')
 }
 //Creando HTML desde JS
 
