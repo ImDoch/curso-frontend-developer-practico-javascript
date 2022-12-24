@@ -35,13 +35,6 @@ function toggleCartshoppingCartContainer () {
     shoppingCartContainer.classList.toggle('inactive'); //Alterna entre mostrar y ocultar el shoppingCartContainer(My Order) cuando se clickea el carrito
 }
 
-function openProductDetailAside () {
-    shoppingCartContainer.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-    desktopMenu.classList.add('inactive');
-    productDetailContainer.classList.remove('inactive')
-}
-
 function closeProductDetailAside () {
     productDetailContainer.classList.add('inactive')
 }
@@ -52,33 +45,24 @@ const productList = [];
 productList.push({
     name: 'Byke',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit fusce, nullam massa purus praesent suspendisse dui metus.',
+    id: 0
 });
 productList.push({
-    name: 'Screen',
+    name: 'Old Tv',
     price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/5721865/pexels-photo-5721865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit fusce, nullam massa purus praesent suspendisse dui metus.',
+    id: 1
 });
 productList.push({
-    name: 'Laptop',
+    name: 'Vintage camera',
     price: 500,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-})
-productList.push({
-    name: 'Byke',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/821738/pexels-photo-821738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit fusce, nullam massa purus praesent suspendisse dui metus.',
+    id: 2
 });
-productList.push({
-    name: 'Screen',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    name: 'Laptop',
-    price: 500,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-})
 
 //Aqui estamos recorriendo el arreglo donde por cada elemento, en este caso, producto, se creará un div en el documento HTML.
 function renderProducts(array) {
@@ -89,8 +73,26 @@ function renderProducts(array) {
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-        productImg.classList.add('pointer')
-        productImg.addEventListener('click', openProductDetailAside);
+        productImg.classList.add('pointer');
+        productImg.setAttribute('id',product.id);
+        productImg.addEventListener('click', e  => {
+            const productImg = document.querySelector('.product-img');
+            const productPrice = document.querySelector('.product-price');
+            const productName = document.querySelector('.product-name');
+            const productDescription = document.querySelector('.product-description');
+            
+            let position = e.target.id
+            let selectedProduct = productList[position];
+            productImg.src = selectedProduct.image;
+            productPrice.innerText = '$' + selectedProduct.price;
+            productName.innerText = selectedProduct.name;
+            productDescription.innerText = selectedProduct.description;
+
+            shoppingCartContainer.classList.add('inactive');
+            mobileMenu.classList.add('inactive');
+            desktopMenu.classList.add('inactive');
+            productDetailContainer.classList.remove('inactive')
+        });
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
